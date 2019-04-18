@@ -1,31 +1,15 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <!-- 문자 인코딩 -->
-    <meta charset="UTF-8">
-    <!-- 모바일 반응형 페이지 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 거지같은 인터넷 익스플로러 호환 -->
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>안녕하세요, 타이틀입니다.</title>
-    <!-- css 연결하기 -->
-    <link rel="stylesheet" href="main.css">
-</head>
-<body>
-    <img src="http://www.palnews.co.kr/news/photo/201801/92969_25283_5321.jpg" alt="Cat">
-    <h1>반갑습니다! 진희정입니다 :)</h1>
-    <p id="short-intro">안녕하세요~~~~~</p>
-    <h2>Skills</h2>
-    <ul>
-        <li class="skill">HTML5</li>
-        <li class="skill">CSS3</li>
-        <li class="skill" id="python">Python</li>
-        <li class="skill">Web Scraping (Selenium)</li>
-        <li class="skill">Terminal Basics</li>
-    </ul>
-    <p class="skill">나는 리스트 안의 Skill 클래스를 먹기 싫어요ㅠㅠ</p>
-    <h2 class="subtitle">SNS</h2>
-    <a href="https://instagram.com/hjjo1011" target="_blank">Instagram</a>
-    <a href="https://github.com/" target="_blank">GitHub</a>
-</body>
+<!doctype HTML>
+<html>
+<script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"> </script>
+  <body style='margin : 0px; overflow: hidden;'>
+    <a-scene stats embedded arjs='trackingMethod: best;'>
+      <a-marker preset="hiro">
+      <a-box position='0 1 0' material='color: blue;'>
+      </a-box>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
 </html>
