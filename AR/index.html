@@ -1,66 +1,32 @@
-<!doctype HTML>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    </head>
-    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
-    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
-    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-    
-    <!-- import events.js script -->
-    <script type="text/javascript">
-		AFRAME.registerComponent('markerhandler', {
-			init: function() {
-				const animatedMarker = document.querySelector("#animated-marker");
-				const aEntity = document.querySelector("#animated-model");
-				const aEntity2 = document.querySelector("#animated-model2");
+<!DOCTYPE html>
+<!-- include aframe -->
+<script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+<!-- include ar.js -->
+<script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
 
-				// every click, we make our model grow in size :)
-				animatedMarker.addEventListener('click', function(ev, target){
-					const intersectedElement = ev && ev.detail && ev.detail.intersectedEl;
-					if (aEntity && intersectedElement === aEntity) {
-						/*
-						const scale = aEntity.getAttribute('scale');
-						Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
-						aEntity.setAttribute('scale', scale);
-						*/
+<!-- to load .ply model -->
+<script src="https://rawgit.com/donmccurdy/aframe-extras/v2.1.1/dist/aframe-extras.loaders.min.js"></script>
 
-						aEntity2.setAttribute('visible', true);
-					}
-				});
-		}});
-	</script>
-    
-    <body style='margin : 0px; overflow: hidden;'>
-        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;'><div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
+	<a href="https://github.com/jeromeetienne/AR.js/" target="_blank">AR.js</a> - Model of A-Frame logo in augmented reality
+	<br/>
+	Contact me any time at <a href='https://twitter.com/jerome_etienne' target='_blank'>@jerome_etienne</a>
+</div>
+	<!-- <a-scene embedded arjs='sourceType: video; sourceUrl:../../data/videos/headtracking.mp4;'> -->
+	<a-scene embedded arjs='sourceType: webcam'>
+	
+        <!-- <a-scene embedded arjs='sourceType: webcam; sourceWidth: 240; sourceHeight: 180;'> -->		
+	<!-- <a-scene arjs='sourceType: image; sourceUrl:../../data/images/screenshot.png'> -->
+	<!-- <a-scene embedded arjs='sourceType: image; sourceUrl:../../data/images/armchair.jpg;'> -->
 
-        <a-assets>
-            <!-- <a-asset-item id="animated-asset" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/models/CesiumMan.gltf"></a-asset-item> -->
-            <a-asset-item id="animated-asset" src="http://www.way21.co.kr/images/common/logo.gif"></a-asset-item>
-            <a-asset-item id="animated-asset2" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/models/CesiumMan.gltf"></a-asset-item>
-        </a-assets>
+		<a-assets>
+			<a-asset-item id="assetAframe" src="models/ply/aframe.ply"></a-asset-item>
+		</a-assets>
 
-        <a-marker markerhandler emitevents="true" cursor="rayOrigin: mouse" id="animated-marker" type='barcode' value='6'>
-            <a-entity
-                id="animated-model"
-                material="src:#animated-asset"
-                scale="2">
-            </a-entity>
-            <a-entity position="0 0 1">
-                <a-entity
-                id="animated-model2"
-                gltf-model="#animated-asset2"
-				visible="false"
-                scale="3"
-                position="-3 0 0"
-                rotation="-90 0 0">
-                </a-entity>
-            </a-entity>
-        </a-marker>
+		<!-- <a-marker type='unknown'> -->
+		<a-entity ply-model="src: #assetAframe" rotation='-90 0 0'scale='0.02 0.02 0.02'></a-entity>
 
-        <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
-        <a-entity camera></a-entity>
-        </a-scene>
-    </body>
+		<a-marker-camera preset='hiro'></a-marker-camera>
+	</a-scene>
+</body>
 </html>
