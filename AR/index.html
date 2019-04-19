@@ -1,14 +1,20 @@
-<script>
-AFRAME.registerComponent('cursor-listener', {
-init: function () {
-this.el.addEventListener('click', function (evt) {
+<!doctype HTML>
+<html>
+    <head>
+		<script>
+		AFRAME.registerComponent('cursor-listener', {
+		init: function () {
+		this.el.addEventListener('click', function (evt) {
 
-  console.log('I was clicked at: ', evt.detail.intersection.point);
- });
-}
-});
-</script>
-</head>  
+		  console.log('I was clicked at: ', evt.detail.intersection.point);
+		 });
+		}
+		});
+		</script>
+	</head>  
+    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 <body>
 <a-scene embedded arjs='trackingMethod: best; debugUIEnabled: false;' foo>
     <a-assets>
