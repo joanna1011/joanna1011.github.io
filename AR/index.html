@@ -24,7 +24,6 @@
 						aEntity.setAttribute('scale', scale);
 						*/
 						aEntity2.setAttribute('visible', true);
-						aEntity2.animate({top:100})
 						//setTimeout('window.location="tel:01067155775";', 500); //전화
 						//window.open('http://way21.co.kr/','_blank');
 					}
@@ -58,7 +57,7 @@
 				material="" 
 				geometry="">
 			</a-image>
-            <a-entity position="0 0 0">
+            <a-entity animation="property: position; to: 5 1.6 0; dur: 1500; easing: linear">
                 <a-entity
                 id="animated-model2"
                 gltf-model="#animated-asset2"
