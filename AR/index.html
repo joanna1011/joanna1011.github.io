@@ -38,7 +38,7 @@
 
         <a-assets>
 			<img id="animated-asset" src="123.jpg">
-			<img id="animated-asset2" src="123.jpg">
+            <a-asset-item id="animated-asset2" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/models/CesiumMan.gltf"></a-asset-item>
         </a-assets>
 
         <a-marker markerhandler emitevents="true" cursor="rayOrigin: mouse" id="animated-marker" type='barcode' value='6'>
@@ -57,21 +57,17 @@
 				material="" 
 				geometry="">
 			</a-image>
-            <a-image
+            <a-entity>
+                <a-entity
                 id="animated-model2"
                 gltf-model="#animated-asset2"
-                position="-5 0 0"
-                rotation="-90 0 0"
-				width="" height="" 
-				opacity="1" 
-				transparent="true" 
 				visible="false"
-				alpha-test="0.2" 
-				shader="standard" 
-				scale="1 1 1" 
-                scale="3">
+                scale="3"
+                position="-5 0 0"
+                rotation="-90 0 0">
 				<a-animation attribute="position" dur="3000" from="-5 0 0" to="5 0 0" repeat="indefinite" ></a-animation>
-            </a-image>
+                </a-entity>
+            </a-entity>
         </a-marker>
 
         <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
