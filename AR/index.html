@@ -57,15 +57,14 @@
 				material="" 
 				geometry="">
 			</a-image>
-            <a-entity animation="property: position; to: 5 1.6 0; dur: 1500; easing: linear">
-                <a-entity
+            <a-entity
                 id="animated-model2"
                 gltf-model="#animated-asset2"
 				visible="false"
                 scale="3"
                 position="-3 0 0"
                 rotation="-90 0 0">
-                </a-entity>
+				<a-animation attribute="position" from="1 1 1" to="2 4 -8"></a-animation>
             </a-entity>
         </a-marker>
 
